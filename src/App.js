@@ -57,6 +57,7 @@ function App(){
     <div className="app">
       <div className="list-books-title">
       <h1>MyReads</h1>
+      </div>
       <Routes>
         <Route path="/search" element={
           <SearchBook Update={Update} searchString={searchString} setSearchString={updateSearchString} showBook={showBook} />
@@ -65,7 +66,6 @@ function App(){
           <HomePage books={books} Update={Update} />
         } />
       </Routes>
-      </div>
     </div>
   );
 }
