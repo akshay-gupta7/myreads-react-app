@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { DebounceInput } from 'react-debounce-input';
 
 import Book from "./Book";
 
@@ -15,8 +14,7 @@ const SearchBook = ({ showBook, Update, searchString, setSearchString }) => {
         Close
       </Link>
       <div className="search-books-input-wrapper">
-        <DebounceInput
-          minLength={3}
+        <input
           type="text"
           placeholder="Search by title, author, or ISBN"
           value={searchString}
