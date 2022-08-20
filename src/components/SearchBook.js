@@ -26,7 +26,7 @@ const SearchBook = ({ showBook, Update, searchString, setSearchString }) => {
     </div>
     <div className="search-books-results">
       <ol className="books-grid">
-        {query === "" ? (
+        {searchString === "" ? (
           <div></div>
         ) : (showBook.map(book => (
             <li key={book.id}>

@@ -1,6 +1,7 @@
 import "./App.css";
-import react from "react";
+/*import react from "react";*/
 import { useEffect, useState } from "react";
+import { Routes, Route } from 'react-router-dom';
 
 import * as BookAPIlayer from "./BooksAPI";
 import SearchBook from "./components/SearchBook";
@@ -24,14 +25,14 @@ function App(){
   /* function to update book as per the shelf*/
 
   const Update = async(book, shelf) => {
-    await BooksAPI.update(book, shelf);
+    await BookAPIlayer.update(book, shelf);
     const getupdatedBooks = await BookAPIlayer.getAll();
     setBooks(getupdatedBooks);
   };
 
   const updateSearchString = (searchString) => {
     setSearchString(searchString);
-    BooksAPI
+    BookAPIlayer
       .search(searchString, 30)
       .then(res => {
         if (Array.isArray(res)) {
@@ -59,10 +60,10 @@ function App(){
     </div>
       <Routes>
         <Route path="/search" element={
-          <Search Update={Update} query={query} updateQuery={updateQuery} displayBooks={displayBooks} />
+          <SearchBook Update={Update} searchString={searchString} setSearchString={updateSearchString} showBook={showBook} />
         } />
         <Route path="/" element={
-          <Home books={books} Update={Update} />
+          <HomePage books={books} Update={Update} />
         } />
       </Routes>
     </div>
