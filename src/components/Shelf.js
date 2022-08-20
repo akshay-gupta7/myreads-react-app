@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import Book from "./Book";
 
-const Shelf= ({ books, updateBook }) => {
+const Shelf= ({ books, Update }) => {
   const shelves = [
     { id: "1", shelfName: "wantToRead", displayName: "Want To Read"},
     { id: "2", shelfName: "currentlyReading", displayName: "Currently Reading"},
@@ -20,7 +20,7 @@ const Shelf= ({ books, updateBook }) => {
                 .filter(book => book.shelf === shelf.shelfName)
                 .map(book => (
                   <li key={book.id}>
-                    <Book book={book} updateBook={updateBook} />
+                    <Book book={book} Update={Update} />
                   </li>
                 ))
               }
@@ -33,7 +33,7 @@ const Shelf= ({ books, updateBook }) => {
 };
 
 Shelf.propTypes = {
-  updateBook: PropTypes.func,
+  Update: PropTypes.func,
   books: PropTypes.array.isRequired,
 };
 

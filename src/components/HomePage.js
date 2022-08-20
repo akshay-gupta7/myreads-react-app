@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 
 import Shelf from "./Shelf";
 
-const HomePage = ({ books, updateBook }) => {
+const HomePage = ({ books, Update }) => {
   return (
     <div className="list-books">
       <div className="list-books-content">
-        <Shelf books={books} updateBook={updateBook} />
+        <Shelf books={books} Update={Update} />
       </div>
       <div className="open-search">
         <Link to={"/search"}>Add a book</Link>
@@ -20,7 +20,7 @@ const HomePage = ({ books, updateBook }) => {
 };
 
 HomePage.propTypes = {
-  updateBook: PropTypes.func,
+  Update: PropTypes.func,
   books: PropTypes.array.isRequired,
 };
 
